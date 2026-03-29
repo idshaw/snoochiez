@@ -1,28 +1,32 @@
 /*
  * SNOOCHIEZ Footer
- * Dark bg, lime accents, Space Mono for labels
+ * Dark bg, sky blue #1AABDC accents, Space Mono for labels
  */
 import { Link } from "wouter";
+
+const BRAND = "#1AABDC";
+const MUTED = "#8A8578";
+const OFF_WHITE = "#F5F0E8";
 
 export default function Footer() {
   return (
     <footer
       style={{
         backgroundColor: "#080806",
-        borderTop: "1px solid rgba(200,255,0,0.15)",
+        borderTop: `1px solid rgba(26,171,220,0.15)`,
       }}
     >
       {/* Marquee strip */}
       <div
         className="overflow-hidden py-3"
-        style={{ borderBottom: "1px solid rgba(200,255,0,0.1)", backgroundColor: "#0E0D0B" }}
+        style={{ borderBottom: `1px solid rgba(26,171,220,0.1)`, backgroundColor: "#0E0D0B" }}
       >
         <div className="marquee-track">
           {Array.from({ length: 12 }).map((_, i) => (
             <span
               key={i}
               className="inline-block px-6 text-sm tracking-widest"
-              style={{ fontFamily: "'Space Mono', monospace", color: "rgba(200,255,0,0.4)" }}
+              style={{ fontFamily: "'Space Mono', monospace", color: `rgba(26,171,220,0.45)` }}
             >
               LOUD FLOWER &nbsp;·&nbsp; BIG LAUGHS &nbsp;·&nbsp; ZERO BULLSHIT &nbsp;·&nbsp;
             </span>
@@ -36,13 +40,13 @@ export default function Footer() {
           <div>
             <div
               className="font-display text-4xl mb-4"
-              style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#C8FF00", letterSpacing: "0.1em" }}
+              style={{ fontFamily: "'Bebas Neue', sans-serif", color: BRAND, letterSpacing: "0.1em" }}
             >
               SNOOCHIEZ
             </div>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#8A8578", fontFamily: "'DM Sans', sans-serif" }}
+              style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
             >
               Cannabis cultivation & lifestyle brand for the real ones. Loud flower, big laughs, zero bullshit.
             </p>
@@ -52,7 +56,7 @@ export default function Footer() {
           <div>
             <div
               className="text-xs tracking-widest mb-4"
-              style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+              style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
             >
               NAVIGATE
             </div>
@@ -66,9 +70,9 @@ export default function Footer() {
                 <Link key={link.href} href={link.href}>
                   <span
                     className="text-sm transition-colors duration-200 block"
-                    style={{ color: "#8A8578", fontFamily: "'DM Sans', sans-serif" }}
-                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = "#C8FF00"}
-                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#8A8578"}
+                    style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = MUTED}
                   >
                     {link.label}
                   </span>
@@ -81,7 +85,7 @@ export default function Footer() {
           <div>
             <div
               className="text-xs tracking-widest mb-4"
-              style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+              style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
             >
               GET AT US
             </div>
@@ -89,9 +93,9 @@ export default function Footer() {
               <a
                 href="mailto:hello@snoochiez.com"
                 className="text-sm transition-colors duration-200"
-                style={{ color: "#8A8578", fontFamily: "'DM Sans', sans-serif" }}
-                onMouseEnter={(e) => (e.target as HTMLElement).style.color = "#C8FF00"}
-                onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#8A8578"}
+                style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.color = MUTED}
               >
                 hello@snoochiez.com
               </a>
@@ -102,15 +106,15 @@ export default function Footer() {
                     className="text-xs tracking-widest px-2 py-1 transition-all duration-200 cursor-pointer"
                     style={{
                       fontFamily: "'Space Mono', monospace",
-                      color: "#8A8578",
+                      color: MUTED,
                       border: "1px solid rgba(138,133,120,0.3)",
                     }}
                     onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.color = "#C8FF00";
-                      (e.target as HTMLElement).style.borderColor = "#C8FF00";
+                      (e.target as HTMLElement).style.color = BRAND;
+                      (e.target as HTMLElement).style.borderColor = BRAND;
                     }}
                     onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.color = "#8A8578";
+                      (e.target as HTMLElement).style.color = MUTED;
                       (e.target as HTMLElement).style.borderColor = "rgba(138,133,120,0.3)";
                     }}
                   >
@@ -124,7 +128,7 @@ export default function Footer() {
 
         <div
           className="mt-12 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-3"
-          style={{ borderTop: "1px solid rgba(200,255,0,0.1)" }}
+          style={{ borderTop: `1px solid rgba(26,171,220,0.1)` }}
         >
           <p
             className="text-xs"

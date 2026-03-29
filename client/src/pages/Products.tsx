@@ -1,13 +1,18 @@
 /*
  * SNOOCHIEZ — Products Page
  * Neo-Brutalism meets Zine Culture
- * Dark charcoal bg | Lime #C8FF00 accent | Bebas Neue display | DM Sans body
+ * Dark charcoal bg | Sky Blue #1AABDC accent | Bebas Neue display | DM Sans body
  */
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const PRODUCTS_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-products-bg-Bd97Dcp2EBtm5EnsuKvhmq.webp";
+
+const BRAND = "#1AABDC";
+const OFF_WHITE = "#F5F0E8";
+const MUTED = "#8A8578";
+const BG = "#0E0D0B";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -148,7 +153,7 @@ export default function Products() {
     : products.filter((p) => p.type === activeFilter);
 
   return (
-    <div style={{ backgroundColor: "#0E0D0B", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: BG, minHeight: "100vh" }}>
       <Navbar />
 
       {/* ─── PAGE HERO ─────────────────────────────────────────── */}
@@ -167,7 +172,7 @@ export default function Products() {
         <div className="container relative z-10">
           <div
             className="text-xs tracking-widest mb-4"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+            style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
           >
             // THE MENU
           </div>
@@ -176,12 +181,12 @@ export default function Products() {
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontSize: "clamp(3.5rem, 9vw, 8rem)",
-              color: "#F5F0E8",
+              color: OFF_WHITE,
               letterSpacing: "0.02em",
             }}
           >
             FIRE STRAINS.<br />
-            <span style={{ color: "#C8FF00" }}>EVERY TIME.</span>
+            <span style={{ color: BRAND }}>EVERY TIME.</span>
           </h1>
           <p
             className="text-lg max-w-xl"
@@ -198,13 +203,13 @@ export default function Products() {
         style={{
           backgroundColor: "rgba(14,13,11,0.97)",
           backdropFilter: "blur(12px)",
-          borderBottom: "1px solid rgba(200,255,0,0.15)",
+          borderBottom: `1px solid rgba(26,171,220,0.15)`,
         }}
       >
         <div className="container flex items-center gap-2 flex-wrap">
           <span
             className="text-xs tracking-widest mr-4 hidden md:block"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
+            style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
           >
             FILTER:
           </span>
@@ -215,9 +220,9 @@ export default function Products() {
               className="text-xs tracking-widest px-4 py-2 transition-all duration-200"
               style={{
                 fontFamily: "'Space Mono', monospace",
-                backgroundColor: activeFilter === f ? "#C8FF00" : "transparent",
-                color: activeFilter === f ? "#0E0D0B" : "#8A8578",
-                border: `1px solid ${activeFilter === f ? "#C8FF00" : "rgba(138,133,120,0.3)"}`,
+                backgroundColor: activeFilter === f ? BRAND : "transparent",
+                color: activeFilter === f ? "#ffffff" : MUTED,
+                border: `1px solid ${activeFilter === f ? BRAND : "rgba(138,133,120,0.3)"}`,
               }}
             >
               {f}
@@ -233,20 +238,20 @@ export default function Products() {
       </div>
 
       {/* ─── PRODUCTS GRID ─────────────────────────────────────── */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: "#0E0D0B" }}>
+      <section className="py-16 md:py-20" style={{ backgroundColor: BG }}>
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {filtered.map((product, i) => (
               <AnimatedSection key={product.id} delay={i * 60}>
                 <div
                   className="group relative p-8 md:p-10 transition-all duration-300"
                   style={{
-                    borderBottom: "1px solid rgba(200,255,0,0.12)",
-                    borderRight: i % 2 === 0 ? "1px solid rgba(200,255,0,0.12)" : "none",
+                    borderBottom: `1px solid rgba(26,171,220,0.12)`,
+                    borderRight: i % 2 === 0 ? `1px solid rgba(26,171,220,0.12)` : "none",
                     cursor: "pointer",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(200,255,0,0.03)";
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `rgba(26,171,220,0.03)`;
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
@@ -259,8 +264,8 @@ export default function Products() {
                         className="text-xs tracking-widest px-2 py-0.5"
                         style={{
                           fontFamily: "'Space Mono', monospace",
-                          color: "#0E0D0B",
-                          backgroundColor: "#C8FF00",
+                          color: "#ffffff",
+                          backgroundColor: BRAND,
                         }}
                       >
                         {product.type}
@@ -270,8 +275,8 @@ export default function Products() {
                           className="text-xs tracking-widest px-2 py-0.5"
                           style={{
                             fontFamily: "'Space Mono', monospace",
-                            color: "#C8FF00",
-                            border: "1px solid #C8FF00",
+                            color: BRAND,
+                            border: `1px solid ${BRAND}`,
                           }}
                         >
                           {product.badge}
@@ -281,13 +286,13 @@ export default function Products() {
                     <div className="text-right">
                       <div
                         className="text-2xl"
-                        style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#C8FF00", letterSpacing: "0.05em" }}
+                        style={{ fontFamily: "'Bebas Neue', sans-serif", color: BRAND, letterSpacing: "0.05em" }}
                       >
                         {product.price}
                       </div>
                       <div
                         className="text-xs"
-                        style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
+                        style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
                       >
                         {product.size}
                       </div>
@@ -300,7 +305,7 @@ export default function Products() {
                     style={{
                       fontFamily: "'Bebas Neue', sans-serif",
                       fontSize: "2.2rem",
-                      color: "#F5F0E8",
+                      color: OFF_WHITE,
                       letterSpacing: "0.04em",
                       lineHeight: 1,
                     }}
@@ -310,16 +315,10 @@ export default function Products() {
 
                   {/* THC/CBD */}
                   <div className="flex gap-4 mb-4">
-                    <span
-                      className="text-xs tracking-widest"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
-                    >
+                    <span className="text-xs tracking-widest" style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}>
                       THC {product.thc}
                     </span>
-                    <span
-                      className="text-xs tracking-widest"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
-                    >
+                    <span className="text-xs tracking-widest" style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}>
                       CBD {product.cbd}
                     </span>
                   </div>
@@ -355,18 +354,18 @@ export default function Products() {
                     style={{
                       fontFamily: "'Space Mono', monospace",
                       backgroundColor: "transparent",
-                      color: "#C8FF00",
-                      border: "1px solid rgba(200,255,0,0.3)",
+                      color: BRAND,
+                      border: `1px solid rgba(26,171,220,0.3)`,
                     }}
                     onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.backgroundColor = "#C8FF00";
-                      (e.target as HTMLElement).style.color = "#0E0D0B";
-                      (e.target as HTMLElement).style.borderColor = "#C8FF00";
+                      (e.target as HTMLElement).style.backgroundColor = BRAND;
+                      (e.target as HTMLElement).style.color = "#ffffff";
+                      (e.target as HTMLElement).style.borderColor = BRAND;
                     }}
                     onMouseLeave={(e) => {
                       (e.target as HTMLElement).style.backgroundColor = "transparent";
-                      (e.target as HTMLElement).style.color = "#C8FF00";
-                      (e.target as HTMLElement).style.borderColor = "rgba(200,255,0,0.3)";
+                      (e.target as HTMLElement).style.color = BRAND;
+                      (e.target as HTMLElement).style.borderColor = `rgba(26,171,220,0.3)`;
                     }}
                   >
                     ADD TO ORDER
@@ -381,7 +380,7 @@ export default function Products() {
       {/* ─── DISCLAIMER ────────────────────────────────────────── */}
       <div
         className="py-6"
-        style={{ borderTop: "1px solid rgba(200,255,0,0.08)", backgroundColor: "#080806" }}
+        style={{ borderTop: `1px solid rgba(26,171,220,0.08)`, backgroundColor: "#080806" }}
       >
         <div className="container">
           <p

@@ -1,7 +1,7 @@
 /*
  * SNOOCHIEZ — About Us Page
  * Neo-Brutalism meets Zine Culture
- * Dark charcoal bg | Lime #C8FF00 accent | Bebas Neue display | DM Sans body
+ * Dark charcoal bg | Sky Blue #1AABDC accent | Bebas Neue display | DM Sans body
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
@@ -10,6 +10,11 @@ import Footer from "@/components/Footer";
 
 const ABOUT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-about-gf36WfFR6LpPAfw3YjU7LQ.webp";
 const LIFESTYLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-lifestyle-F5DQtLqnL9D53kLfZLqRY9.webp";
+
+const BRAND = "#1AABDC";
+const OFF_WHITE = "#F5F0E8";
+const MUTED = "#8A8578";
+const BG = "#0E0D0B";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -66,7 +71,7 @@ const values = [
 
 export default function About() {
   return (
-    <div style={{ backgroundColor: "#0E0D0B", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: BG, minHeight: "100vh" }}>
       <Navbar />
 
       {/* ─── PAGE HERO ─────────────────────────────────────────── */}
@@ -89,7 +94,7 @@ export default function About() {
         <div className="container relative z-10 pb-16">
           <div
             className="text-xs tracking-widest mb-4"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+            style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
           >
             // WHO WE ARE
           </div>
@@ -98,30 +103,28 @@ export default function About() {
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontSize: "clamp(4rem, 10vw, 9rem)",
-              color: "#F5F0E8",
+              color: OFF_WHITE,
               letterSpacing: "0.02em",
               lineHeight: 0.9,
             }}
           >
             ABOUT<br />
-            <span style={{ color: "#C8FF00" }}>SNOOCHIEZ</span>
+            <span style={{ color: BRAND }}>SNOOCHIEZ</span>
           </h1>
         </div>
       </section>
 
       {/* ─── MAIN COPY ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#0E0D0B" }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: BG }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             {/* Left: big quote */}
             <div className="md:col-span-5">
               <AnimatedSection>
-                <div
-                  className="sticky top-28"
-                >
+                <div className="sticky top-28">
                   <div
                     className="text-xs tracking-widest mb-6"
-                    style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                    style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                   >
                     // THE MANIFESTO
                   </div>
@@ -130,20 +133,20 @@ export default function About() {
                     style={{
                       fontFamily: "'Bebas Neue', sans-serif",
                       fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
-                      color: "#F5F0E8",
+                      color: OFF_WHITE,
                       letterSpacing: "0.03em",
                       lineHeight: 1.05,
-                      borderLeft: "3px solid #C8FF00",
+                      borderLeft: `3px solid ${BRAND}`,
                       paddingLeft: "1.5rem",
                     }}
                   >
                     "LOUD FLOWER.<br />
                     BIG LAUGHS.<br />
-                    <span style={{ color: "#C8FF00" }}>ZERO<br />BULLSHIT."</span>
+                    <span style={{ color: BRAND }}>ZERO<br />BULLSHIT."</span>
                   </blockquote>
                   <div
                     className="mt-6 text-xs tracking-widest"
-                    style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
+                    style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
                   >
                     — SNOOCHIEZ, BABY
                   </div>
@@ -157,7 +160,7 @@ export default function About() {
                 <div className="space-y-6">
                   <p
                     className="text-xl leading-relaxed font-medium"
-                    style={{ color: "#F5F0E8", fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: OFF_WHITE, fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Yo, welcome to Snoochiez, baby — a cannabis cultivation and lifestyle brand for the real ones. The loud ones. The weird ones. The people who know life's too short for mids, bad vibes, and boring-ass brands.
                   </p>
@@ -181,7 +184,7 @@ export default function About() {
                   </p>
                   <p
                     className="text-lg font-semibold"
-                    style={{ color: "#C8FF00", fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: BRAND, fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Snoochiez, baby. Loud flower. Big laughs. Zero bullshit.
                   </p>
@@ -195,13 +198,13 @@ export default function About() {
       {/* ─── VALUES ────────────────────────────────────────────── */}
       <section
         className="py-20 md:py-28"
-        style={{ backgroundColor: "#161512", borderTop: "1px solid rgba(200,255,0,0.1)" }}
+        style={{ backgroundColor: "#161512", borderTop: `1px solid rgba(26,171,220,0.1)` }}
       >
         <div className="container">
           <AnimatedSection>
             <div
               className="text-xs tracking-widest mb-4"
-              style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+              style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
             >
               // WHAT WE STAND FOR
             </div>
@@ -210,7 +213,7 @@ export default function About() {
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
                 fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                color: "#F5F0E8",
+                color: OFF_WHITE,
                 letterSpacing: "0.03em",
               }}
             >
@@ -224,11 +227,11 @@ export default function About() {
                 <div
                   className="p-8 md:p-10 transition-all duration-300"
                   style={{
-                    borderTop: "1px solid rgba(200,255,0,0.12)",
-                    borderRight: i % 2 === 0 ? "1px solid rgba(200,255,0,0.12)" : "none",
+                    borderTop: `1px solid rgba(26,171,220,0.12)`,
+                    borderRight: i % 2 === 0 ? `1px solid rgba(26,171,220,0.12)` : "none",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(200,255,0,0.03)";
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `rgba(26,171,220,0.03)`;
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
@@ -236,7 +239,7 @@ export default function About() {
                 >
                   <div
                     className="text-xs tracking-widest mb-4"
-                    style={{ fontFamily: "'Space Mono', monospace", color: "rgba(200,255,0,0.4)" }}
+                    style={{ fontFamily: "'Space Mono', monospace", color: `rgba(26,171,220,0.4)` }}
                   >
                     {val.num}
                   </div>
@@ -245,7 +248,7 @@ export default function About() {
                     style={{
                       fontFamily: "'Bebas Neue', sans-serif",
                       fontSize: "2rem",
-                      color: "#F5F0E8",
+                      color: OFF_WHITE,
                       letterSpacing: "0.05em",
                     }}
                   >
@@ -253,7 +256,7 @@ export default function About() {
                   </h3>
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: "#8A8578", fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {val.desc}
                   </p>
@@ -265,14 +268,14 @@ export default function About() {
       </section>
 
       {/* ─── CULTIVATION SPLIT ─────────────────────────────────── */}
-      <section className="overflow-hidden" style={{ backgroundColor: "#0E0D0B" }}>
+      <section className="overflow-hidden" style={{ backgroundColor: BG }}>
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Text */}
           <div className="flex flex-col justify-center p-10 md:p-16 order-2 md:order-1">
             <AnimatedSection>
               <div
                 className="text-xs tracking-widest mb-4"
-                style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
               >
                 // THE GROW
               </div>
@@ -281,12 +284,12 @@ export default function About() {
                 style={{
                   fontFamily: "'Bebas Neue', sans-serif",
                   fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-                  color: "#F5F0E8",
+                  color: OFF_WHITE,
                   letterSpacing: "0.03em",
                 }}
               >
                 GROWN WITH<br />
-                <span style={{ color: "#C8FF00" }}>OBSESSION.</span>
+                <span style={{ color: BRAND }}>OBSESSION.</span>
               </h2>
               <p
                 className="text-base leading-relaxed mb-6 max-w-md"
@@ -311,7 +314,7 @@ export default function About() {
                       style={{
                         fontFamily: "'Bebas Neue', sans-serif",
                         fontSize: "2.5rem",
-                        color: "#C8FF00",
+                        color: BRAND,
                         letterSpacing: "0.05em",
                       }}
                     >
@@ -319,7 +322,7 @@ export default function About() {
                     </div>
                     <div
                       className="text-xs tracking-widest"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
                     >
                       {stat.label.toUpperCase()}
                     </div>
@@ -349,7 +352,7 @@ export default function About() {
       {/* ─── CTA ───────────────────────────────────────────────── */}
       <section
         className="py-20 md:py-28"
-        style={{ backgroundColor: "#161512", borderTop: "1px solid rgba(200,255,0,0.1)" }}
+        style={{ backgroundColor: "#161512", borderTop: `1px solid rgba(26,171,220,0.1)` }}
       >
         <div className="container text-center">
           <AnimatedSection>
@@ -358,12 +361,12 @@ export default function About() {
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
                 fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                color: "#F5F0E8",
+                color: OFF_WHITE,
                 letterSpacing: "0.03em",
               }}
             >
               READY TO SMOKE<br />
-              <span style={{ color: "#C8FF00" }}>THE GOOD STUFF?</span>
+              <span style={{ color: BRAND }}>THE GOOD STUFF?</span>
             </h2>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Link href="/products">
@@ -371,17 +374,17 @@ export default function About() {
                   className="inline-block px-10 py-4 text-sm tracking-widest font-bold transition-all duration-200"
                   style={{
                     fontFamily: "'Space Mono', monospace",
-                    backgroundColor: "#C8FF00",
-                    color: "#0E0D0B",
-                    border: "2px solid #C8FF00",
+                    backgroundColor: BRAND,
+                    color: "#ffffff",
+                    border: `2px solid ${BRAND}`,
                   }}
                   onMouseEnter={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = "transparent";
-                    (e.target as HTMLElement).style.color = "#C8FF00";
+                    (e.target as HTMLElement).style.color = BRAND;
                   }}
                   onMouseLeave={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = "#C8FF00";
-                    (e.target as HTMLElement).style.color = "#0E0D0B";
+                    (e.target as HTMLElement).style.backgroundColor = BRAND;
+                    (e.target as HTMLElement).style.color = "#ffffff";
                   }}
                 >
                   SHOP THE MENU
@@ -393,16 +396,16 @@ export default function About() {
                   style={{
                     fontFamily: "'Space Mono', monospace",
                     backgroundColor: "transparent",
-                    color: "#F5F0E8",
+                    color: OFF_WHITE,
                     border: "2px solid rgba(245,240,232,0.3)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.target as HTMLElement).style.borderColor = "#C8FF00";
-                    (e.target as HTMLElement).style.color = "#C8FF00";
+                    (e.target as HTMLElement).style.borderColor = BRAND;
+                    (e.target as HTMLElement).style.color = BRAND;
                   }}
                   onMouseLeave={(e) => {
                     (e.target as HTMLElement).style.borderColor = "rgba(245,240,232,0.3)";
-                    (e.target as HTMLElement).style.color = "#F5F0E8";
+                    (e.target as HTMLElement).style.color = OFF_WHITE;
                   }}
                 >
                   GET IN TOUCH

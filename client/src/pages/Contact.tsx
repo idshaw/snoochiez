@@ -1,11 +1,16 @@
 /*
  * SNOOCHIEZ — Contact Us Page
  * Neo-Brutalism meets Zine Culture
- * Dark charcoal bg | Lime #C8FF00 accent | Bebas Neue display | DM Sans body
+ * Dark charcoal bg | Sky Blue #1AABDC accent | Bebas Neue display | DM Sans body
  */
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const BRAND = "#1AABDC";
+const OFF_WHITE = "#F5F0E8";
+const MUTED = "#8A8578";
+const BG = "#0E0D0B";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,27 +51,6 @@ type FormState = {
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
-const inputStyle = {
-  width: "100%",
-  backgroundColor: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(200,255,0,0.2)",
-  color: "#F5F0E8",
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: "0.95rem",
-  padding: "0.875rem 1rem",
-  outline: "none",
-  transition: "border-color 0.2s ease",
-};
-
-const labelStyle = {
-  display: "block",
-  fontFamily: "'Space Mono', monospace",
-  fontSize: "0.7rem",
-  letterSpacing: "0.1em",
-  color: "#8A8578",
-  marginBottom: "0.5rem",
-};
-
 export default function Contact() {
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -91,33 +75,40 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
-      setSubmitted(true);
-    }
+    if (validate()) setSubmitted(true);
   };
 
-  const getFieldStyle = (field: keyof FormState) => ({
-    ...inputStyle,
-    borderColor: errors[field]
-      ? "#ff4444"
-      : focusedField === field
-      ? "#C8FF00"
-      : "rgba(200,255,0,0.2)",
+  const inputStyle = (field: keyof FormState) => ({
+    width: "100%",
+    backgroundColor: "rgba(255,255,255,0.04)",
+    border: `1px solid ${errors[field] ? "#ff4444" : focusedField === field ? BRAND : "rgba(26,171,220,0.2)"}`,
+    color: OFF_WHITE,
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: "0.95rem",
+    padding: "0.875rem 1rem",
+    outline: "none",
+    transition: "border-color 0.2s ease",
   });
 
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontFamily: "'Space Mono', monospace",
+    fontSize: "0.7rem",
+    letterSpacing: "0.1em",
+    color: MUTED,
+    marginBottom: "0.5rem",
+  };
+
   return (
-    <div style={{ backgroundColor: "#0E0D0B", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: BG, minHeight: "100vh" }}>
       <Navbar />
 
       {/* ─── PAGE HEADER ───────────────────────────────────────── */}
-      <section
-        className="pt-36 pb-16"
-        style={{ backgroundColor: "#0E0D0B" }}
-      >
+      <section className="pt-36 pb-16" style={{ backgroundColor: BG }}>
         <div className="container">
           <div
             className="text-xs tracking-widest mb-4"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+            style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
           >
             // HIT US UP
           </div>
@@ -126,13 +117,13 @@ export default function Contact() {
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontSize: "clamp(3.5rem, 9vw, 8rem)",
-              color: "#F5F0E8",
+              color: OFF_WHITE,
               letterSpacing: "0.02em",
               lineHeight: 0.9,
             }}
           >
             GET IN<br />
-            <span style={{ color: "#C8FF00" }}>TOUCH.</span>
+            <span style={{ color: BRAND }}>TOUCH.</span>
           </h1>
           <p
             className="text-lg max-w-lg"
@@ -144,33 +135,33 @@ export default function Contact() {
       </section>
 
       {/* ─── MAIN CONTENT ──────────────────────────────────────── */}
-      <section className="pb-20 md:pb-28" style={{ backgroundColor: "#0E0D0B" }}>
+      <section className="pb-20 md:pb-28" style={{ backgroundColor: BG }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
 
             {/* Left: Contact Info */}
             <div className="md:col-span-4">
               <AnimatedSection>
-                <div className="space-y-10">
+                <div className="space-y-6">
                   {/* Email */}
                   <div
                     className="p-6 transition-all duration-300"
-                    style={{ border: "1px solid rgba(200,255,0,0.15)" }}
-                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = "#C8FF00"}
-                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = "rgba(200,255,0,0.15)"}
+                    style={{ border: `1px solid rgba(26,171,220,0.15)` }}
+                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = BRAND}
+                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = `rgba(26,171,220,0.15)`}
                   >
                     <div
                       className="text-xs tracking-widest mb-3"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                     >
                       EMAIL
                     </div>
                     <a
                       href="mailto:hello@snoochiez.com"
                       className="text-base transition-colors duration-200"
-                      style={{ color: "#F5F0E8", fontFamily: "'DM Sans', sans-serif" }}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = "#C8FF00"}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#F5F0E8"}
+                      style={{ color: OFF_WHITE, fontFamily: "'DM Sans', sans-serif" }}
+                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = OFF_WHITE}
                     >
                       hello@snoochiez.com
                     </a>
@@ -179,22 +170,22 @@ export default function Contact() {
                   {/* Business */}
                   <div
                     className="p-6 transition-all duration-300"
-                    style={{ border: "1px solid rgba(200,255,0,0.15)" }}
-                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = "#C8FF00"}
-                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = "rgba(200,255,0,0.15)"}
+                    style={{ border: `1px solid rgba(26,171,220,0.15)` }}
+                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = BRAND}
+                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = `rgba(26,171,220,0.15)`}
                   >
                     <div
                       className="text-xs tracking-widest mb-3"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                     >
                       BUSINESS INQUIRIES
                     </div>
                     <a
                       href="mailto:biz@snoochiez.com"
                       className="text-base transition-colors duration-200"
-                      style={{ color: "#F5F0E8", fontFamily: "'DM Sans', sans-serif" }}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = "#C8FF00"}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#F5F0E8"}
+                      style={{ color: OFF_WHITE, fontFamily: "'DM Sans', sans-serif" }}
+                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = OFF_WHITE}
                     >
                       biz@snoochiez.com
                     </a>
@@ -203,13 +194,13 @@ export default function Contact() {
                   {/* Social */}
                   <div
                     className="p-6 transition-all duration-300"
-                    style={{ border: "1px solid rgba(200,255,0,0.15)" }}
-                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = "#C8FF00"}
-                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = "rgba(200,255,0,0.15)"}
+                    style={{ border: `1px solid rgba(26,171,220,0.15)` }}
+                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.borderColor = BRAND}
+                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.borderColor = `rgba(26,171,220,0.15)`}
                   >
                     <div
                       className="text-xs tracking-widest mb-4"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                     >
                       FOLLOW THE SMOKE
                     </div>
@@ -222,13 +213,13 @@ export default function Contact() {
                         <div key={s.platform} className="flex justify-between items-center">
                           <span
                             className="text-xs tracking-widest"
-                            style={{ fontFamily: "'Space Mono', monospace", color: "#8A8578" }}
+                            style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
                           >
                             {s.platform}
                           </span>
                           <span
                             className="text-sm"
-                            style={{ color: "#F5F0E8", fontFamily: "'DM Sans', sans-serif" }}
+                            style={{ color: OFF_WHITE, fontFamily: "'DM Sans', sans-serif" }}
                           >
                             {s.handle}
                           </span>
@@ -237,20 +228,17 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Hours */}
-                  <div
-                    className="p-6"
-                    style={{ border: "1px solid rgba(200,255,0,0.15)" }}
-                  >
+                  {/* Response time */}
+                  <div className="p-6" style={{ border: `1px solid rgba(26,171,220,0.15)` }}>
                     <div
                       className="text-xs tracking-widest mb-4"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                     >
                       RESPONSE TIME
                     </div>
                     <p
                       className="text-sm leading-relaxed"
-                      style={{ color: "#8A8578", fontFamily: "'DM Sans', sans-serif" }}
+                      style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
                     >
                       We typically respond within 24–48 hours. We're real people, not bots — so give us a minute.
                     </p>
@@ -265,11 +253,11 @@ export default function Contact() {
                 {submitted ? (
                   <div
                     className="flex flex-col items-center justify-center text-center py-20 px-8"
-                    style={{ border: "1px solid rgba(200,255,0,0.2)" }}
+                    style={{ border: `1px solid rgba(26,171,220,0.2)` }}
                   >
                     <div
                       className="text-xs tracking-widest mb-6"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#C8FF00" }}
+                      style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
                     >
                       // MESSAGE SENT
                     </div>
@@ -278,12 +266,12 @@ export default function Contact() {
                       style={{
                         fontFamily: "'Bebas Neue', sans-serif",
                         fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                        color: "#F5F0E8",
+                        color: OFF_WHITE,
                         letterSpacing: "0.03em",
                       }}
                     >
                       WE GOT YOU,<br />
-                      <span style={{ color: "#C8FF00" }}>BABY.</span>
+                      <span style={{ color: BRAND }}>BABY.</span>
                     </h2>
                     <p
                       className="text-base max-w-md"
@@ -296,20 +284,20 @@ export default function Contact() {
                       style={{
                         fontFamily: "'Space Mono', monospace",
                         backgroundColor: "transparent",
-                        color: "#C8FF00",
-                        border: "1px solid #C8FF00",
+                        color: BRAND,
+                        border: `1px solid ${BRAND}`,
                       }}
                       onClick={() => {
                         setSubmitted(false);
                         setForm({ name: "", email: "", subject: "", message: "" });
                       }}
                       onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.backgroundColor = "#C8FF00";
-                        (e.target as HTMLElement).style.color = "#0E0D0B";
+                        (e.target as HTMLElement).style.backgroundColor = BRAND;
+                        (e.target as HTMLElement).style.color = "#ffffff";
                       }}
                       onMouseLeave={(e) => {
                         (e.target as HTMLElement).style.backgroundColor = "transparent";
-                        (e.target as HTMLElement).style.color = "#C8FF00";
+                        (e.target as HTMLElement).style.color = BRAND;
                       }}
                     >
                       SEND ANOTHER
@@ -318,7 +306,6 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} noValidate>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                      {/* Name */}
                       <div>
                         <label style={labelStyle}>YOUR NAME *</label>
                         <input
@@ -328,7 +315,7 @@ export default function Contact() {
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
                           placeholder="What do they call you?"
-                          style={getFieldStyle("name")}
+                          style={inputStyle("name")}
                         />
                         {errors.name && (
                           <p className="mt-1 text-xs" style={{ fontFamily: "'Space Mono', monospace", color: "#ff4444" }}>
@@ -336,8 +323,6 @@ export default function Contact() {
                           </p>
                         )}
                       </div>
-
-                      {/* Email */}
                       <div>
                         <label style={labelStyle}>YOUR EMAIL *</label>
                         <input
@@ -347,7 +332,7 @@ export default function Contact() {
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
                           placeholder="Where do we send the reply?"
-                          style={getFieldStyle("email")}
+                          style={inputStyle("email")}
                         />
                         {errors.email && (
                           <p className="mt-1 text-xs" style={{ fontFamily: "'Space Mono', monospace", color: "#ff4444" }}>
@@ -357,7 +342,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* Subject */}
                     <div className="mb-6">
                       <label style={labelStyle}>SUBJECT *</label>
                       <input
@@ -367,7 +351,7 @@ export default function Contact() {
                         onFocus={() => setFocusedField("subject")}
                         onBlur={() => setFocusedField(null)}
                         placeholder="What's this about?"
-                        style={getFieldStyle("subject")}
+                        style={inputStyle("subject")}
                       />
                       {errors.subject && (
                         <p className="mt-1 text-xs" style={{ fontFamily: "'Space Mono', monospace", color: "#ff4444" }}>
@@ -376,7 +360,6 @@ export default function Contact() {
                       )}
                     </div>
 
-                    {/* Message */}
                     <div className="mb-8">
                       <label style={labelStyle}>YOUR MESSAGE *</label>
                       <textarea
@@ -387,7 +370,7 @@ export default function Contact() {
                         placeholder="Say what's on your mind. We're listening."
                         rows={7}
                         style={{
-                          ...getFieldStyle("message"),
+                          ...inputStyle("message"),
                           resize: "vertical",
                           minHeight: "160px",
                         }}
@@ -399,23 +382,22 @@ export default function Contact() {
                       )}
                     </div>
 
-                    {/* Submit */}
                     <button
                       type="submit"
                       className="w-full py-4 text-sm tracking-widest font-bold transition-all duration-200"
                       style={{
                         fontFamily: "'Space Mono', monospace",
-                        backgroundColor: "#C8FF00",
-                        color: "#0E0D0B",
-                        border: "2px solid #C8FF00",
+                        backgroundColor: BRAND,
+                        color: "#ffffff",
+                        border: `2px solid ${BRAND}`,
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.backgroundColor = "transparent";
-                        (e.target as HTMLElement).style.color = "#C8FF00";
+                        (e.target as HTMLElement).style.color = BRAND;
                       }}
                       onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.backgroundColor = "#C8FF00";
-                        (e.target as HTMLElement).style.color = "#0E0D0B";
+                        (e.target as HTMLElement).style.backgroundColor = BRAND;
+                        (e.target as HTMLElement).style.color = "#ffffff";
                       }}
                     >
                       SEND IT →

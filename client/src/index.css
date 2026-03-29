@@ -1,7 +1,7 @@
 /*
  * SNOOCHIEZ — Design System
  * Movement: Neo-Brutalism meets Street Art Zine Culture
- * Background: near-black charcoal | Accent: electric lime #C8FF00
+ * Background: near-black charcoal | Accent: Snoochiez sky blue #1AABDC
  * Fonts: Bebas Neue (display) | DM Sans (body) | Space Mono (labels)
  */
 
@@ -48,9 +48,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Snoochiez custom tokens */
-  --color-lime: #C8FF00;
-  --color-lime-dim: #9FCC00;
+  /* Snoochiez custom tokens — Sky Blue palette */
+  --color-brand: #1AABDC;
+  --color-brand-dim: #1490BB;
   --color-charcoal: #0E0D0B;
   --color-charcoal-2: #161512;
   --color-charcoal-3: #1E1C18;
@@ -69,32 +69,32 @@
   --card-foreground: oklch(0.95 0.01 75);
   --popover: oklch(0.11 0.006 65);
   --popover-foreground: oklch(0.95 0.01 75);
-  --primary: #C8FF00;
-  --primary-foreground: oklch(0.085 0.005 65);
+  --primary: #1AABDC;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.14 0.006 65);
   --secondary-foreground: oklch(0.85 0.01 75);
   --muted: oklch(0.14 0.006 65);
   --muted-foreground: oklch(0.55 0.01 75);
-  --accent: #C8FF00;
-  --accent-foreground: oklch(0.085 0.005 65);
+  --accent: #1AABDC;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.22 0.006 65);
   --input: oklch(0.18 0.006 65);
-  --ring: #C8FF00;
-  --chart-1: #C8FF00;
-  --chart-2: oklch(0.55 0.15 130);
-  --chart-3: oklch(0.45 0.12 130);
-  --chart-4: oklch(0.35 0.09 130);
-  --chart-5: oklch(0.25 0.06 130);
+  --ring: #1AABDC;
+  --chart-1: #1AABDC;
+  --chart-2: oklch(0.55 0.15 220);
+  --chart-3: oklch(0.45 0.12 220);
+  --chart-4: oklch(0.35 0.09 220);
+  --chart-5: oklch(0.25 0.06 220);
   --sidebar: oklch(0.11 0.006 65);
   --sidebar-foreground: oklch(0.95 0.01 75);
-  --sidebar-primary: #C8FF00;
-  --sidebar-primary-foreground: oklch(0.085 0.005 65);
+  --sidebar-primary: #1AABDC;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: oklch(0.14 0.006 65);
   --sidebar-accent-foreground: oklch(0.95 0.01 75);
   --sidebar-border: oklch(0.22 0.006 65);
-  --sidebar-ring: #C8FF00;
+  --sidebar-ring: #1AABDC;
 }
 
 @layer base {
@@ -176,12 +176,12 @@
     z-index: 1;
   }
 
-  /* Lime accent border */
-  .lime-border {
-    border: 2px solid #C8FF00;
+  /* Brand accent border */
+  .brand-border {
+    border: 2px solid #1AABDC;
   }
-  .lime-border-left {
-    border-left: 3px solid #C8FF00;
+  .brand-border-left {
+    border-left: 3px solid #1AABDC;
   }
 
   /* Scrolling marquee */
@@ -196,11 +196,11 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* Lime glow */
-  .lime-glow {
-    box-shadow: 0 0 20px rgba(200, 255, 0, 0.25), 0 0 40px rgba(200, 255, 0, 0.1);
+  /* Brand glow */
+  .brand-glow {
+    box-shadow: 0 0 20px rgba(26, 171, 220, 0.25), 0 0 40px rgba(26, 171, 220, 0.1);
   }
-  .lime-text-glow {
-    text-shadow: 0 0 20px rgba(200, 255, 0, 0.5);
+  .brand-text-glow {
+    text-shadow: 0 0 20px rgba(26, 171, 220, 0.5);
   }
 }

@@ -1,10 +1,16 @@
 /*
  * SNOOCHIEZ Navbar
- * Dark charcoal bg, lime accent on active/hover
- * Bebas Neue for nav links, sticky top
+ * Dark charcoal bg, sky blue #1AABDC accent on active/hover
+ * Actual Snoochiez logo image (white on blue bg) displayed top-left
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-logo_96fb928b.png";
+
+const BRAND = "#1AABDC";
+const OFF_WHITE = "#F5F0E8";
+const MUTED = "#8A8578";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -34,18 +40,36 @@ export default function Navbar() {
       style={{
         backgroundColor: scrolled ? "rgba(14,13,11,0.97)" : "rgba(14,13,11,0.6)",
         backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid rgba(200,255,0,0.15)" : "1px solid transparent",
+        borderBottom: scrolled ? `1px solid rgba(26,171,220,0.2)` : "1px solid transparent",
       }}
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
+        {/* Logo — actual brand image on black pill/square */}
         <Link href="/">
-          <span
-            className="font-display text-2xl md:text-3xl tracking-widest select-none"
-            style={{ color: "#C8FF00", fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.12em" }}
+          <div
+            className="flex items-center"
+            style={{ cursor: "pointer" }}
           >
-            SNOOCHIEZ
-          </span>
+            <div
+              style={{
+                backgroundColor: "#000000",
+                padding: "6px 14px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src={LOGO_URL}
+                alt="Snoochiez"
+                style={{
+                  height: "36px",
+                  width: "auto",
+                  display: "block",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -59,15 +83,15 @@ export default function Navbar() {
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
                     letterSpacing: "0.1em",
-                    color: isActive ? "#C8FF00" : "#F5F0E8",
-                    borderBottom: isActive ? "2px solid #C8FF00" : "2px solid transparent",
+                    color: isActive ? BRAND : OFF_WHITE,
+                    borderBottom: isActive ? `2px solid ${BRAND}` : "2px solid transparent",
                     paddingBottom: "2px",
                   }}
                   onMouseEnter={(e) => {
-                    if (!isActive) (e.target as HTMLElement).style.color = "#C8FF00";
+                    if (!isActive) (e.target as HTMLElement).style.color = BRAND;
                   }}
                   onMouseLeave={(e) => {
-                    if (!isActive) (e.target as HTMLElement).style.color = "#F5F0E8";
+                    if (!isActive) (e.target as HTMLElement).style.color = OFF_WHITE;
                   }}
                 >
                   {link.label}
@@ -80,17 +104,17 @@ export default function Navbar() {
               className="font-mono-brand text-xs tracking-widest px-4 py-2 transition-all duration-200"
               style={{
                 fontFamily: "'Space Mono', monospace",
-                color: "#0E0D0B",
-                backgroundColor: "#C8FF00",
-                border: "2px solid #C8FF00",
+                color: "#ffffff",
+                backgroundColor: BRAND,
+                border: `2px solid ${BRAND}`,
               }}
               onMouseEnter={(e) => {
                 (e.target as HTMLElement).style.backgroundColor = "transparent";
-                (e.target as HTMLElement).style.color = "#C8FF00";
+                (e.target as HTMLElement).style.color = BRAND;
               }}
               onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.backgroundColor = "#C8FF00";
-                (e.target as HTMLElement).style.color = "#0E0D0B";
+                (e.target as HTMLElement).style.backgroundColor = BRAND;
+                (e.target as HTMLElement).style.color = "#ffffff";
               }}
             >
               SHOP NOW
@@ -107,21 +131,21 @@ export default function Navbar() {
           <span
             className="block w-6 h-0.5 transition-all duration-300"
             style={{
-              backgroundColor: "#C8FF00",
+              backgroundColor: BRAND,
               transform: menuOpen ? "rotate(45deg) translateY(8px)" : "none",
             }}
           />
           <span
             className="block w-6 h-0.5 transition-all duration-300"
             style={{
-              backgroundColor: "#C8FF00",
+              backgroundColor: BRAND,
               opacity: menuOpen ? 0 : 1,
             }}
           />
           <span
             className="block w-6 h-0.5 transition-all duration-300"
             style={{
-              backgroundColor: "#C8FF00",
+              backgroundColor: BRAND,
               transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "none",
             }}
           />
@@ -134,7 +158,7 @@ export default function Navbar() {
         style={{
           maxHeight: menuOpen ? "300px" : "0",
           backgroundColor: "rgba(14,13,11,0.98)",
-          borderTop: menuOpen ? "1px solid rgba(200,255,0,0.2)" : "none",
+          borderTop: menuOpen ? `1px solid rgba(26,171,220,0.2)` : "none",
         }}
       >
         <div className="container py-4 flex flex-col gap-4">
@@ -146,7 +170,7 @@ export default function Navbar() {
                   className="font-display text-2xl tracking-widest block py-1"
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
-                    color: isActive ? "#C8FF00" : "#F5F0E8",
+                    color: isActive ? BRAND : OFF_WHITE,
                   }}
                 >
                   {link.label}
