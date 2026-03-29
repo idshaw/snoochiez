@@ -8,7 +8,8 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-hero-RjLocRRDyVjfysWA9XULae.webp";
+// New hero — icy blue-lit bud on deep charcoal, matches brand palette
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-hero-v2-eQvu2PxViJiUkesjsnEGYj.webp";
 const LIFESTYLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-lifestyle-F5DQtLqnL9D53kLfZLqRY9.webp";
 const PRODUCTS_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-products-bg-Bd97Dcp2EBtm5EnsuKvhmq.webp";
 
@@ -59,6 +60,51 @@ const strainHighlights = [
   { name: "Citrus Wreck", type: "HYBRID", thc: "26%", desc: "Bright, zesty, and perfectly balanced. Good times guaranteed." },
 ];
 
+const dispensaries = [
+  {
+    name: "Green Horizon Dispensary",
+    address: "1420 Blaze Ave, Los Angeles, CA 90028",
+    hours: "Mon–Sun: 9am – 10pm",
+    phone: "(323) 555-0142",
+    type: "RECREATIONAL",
+  },
+  {
+    name: "The High Standard",
+    address: "808 Kush Blvd, San Francisco, CA 94103",
+    hours: "Mon–Sat: 10am – 9pm",
+    phone: "(415) 555-0808",
+    type: "RECREATIONAL + MED",
+  },
+  {
+    name: "Elevated Roots",
+    address: "2710 Terp Lane, Denver, CO 80205",
+    hours: "Mon–Sun: 8am – 10pm",
+    phone: "(720) 555-2710",
+    type: "RECREATIONAL",
+  },
+  {
+    name: "Cloud Nine Cannabis",
+    address: "420 Sativa St, Seattle, WA 98101",
+    hours: "Mon–Sun: 9am – 11pm",
+    phone: "(206) 555-0420",
+    type: "RECREATIONAL",
+  },
+  {
+    name: "The Flower District",
+    address: "1337 Indica Way, Portland, OR 97201",
+    hours: "Mon–Sat: 10am – 8pm",
+    phone: "(503) 555-1337",
+    type: "RECREATIONAL + MED",
+  },
+  {
+    name: "Primo Provisions",
+    address: "710 Dab Drive, Las Vegas, NV 89101",
+    hours: "Mon–Sun: 24 Hours",
+    phone: "(702) 555-0710",
+    type: "RECREATIONAL",
+  },
+];
+
 export default function Home() {
   return (
     <div style={{ backgroundColor: BG, minHeight: "100vh" }}>
@@ -74,20 +120,27 @@ export default function Home() {
           style={{
             backgroundImage: `url(${HERO_IMG})`,
             backgroundSize: "cover",
-            backgroundPosition: "center 40%",
+            backgroundPosition: "center 50%",
           }}
         />
+        {/* Gradient: heavier on left where text lives, lighter on right to show the bud */}
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to top, rgba(14,13,11,1) 0%, rgba(14,13,11,0.7) 40%, rgba(14,13,11,0.3) 100%)`,
+            background: `linear-gradient(105deg, rgba(14,13,11,0.97) 0%, rgba(14,13,11,0.85) 40%, rgba(14,13,11,0.45) 70%, rgba(14,13,11,0.2) 100%)`,
           }}
         />
+        {/* Bottom fade to page bg */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40"
+          style={{ background: `linear-gradient(to top, ${BG}, transparent)` }}
+        />
+        {/* Grain texture */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")`,
-            opacity: 0.5,
+            opacity: 0.4,
           }}
         />
 
@@ -436,6 +489,174 @@ export default function Home() {
                 EXPLORE THE MENU
               </span>
             </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ─── WHERE TO BUY ──────────────────────────────────────── */}
+      <section
+        className="py-20 md:py-28"
+        style={{ backgroundColor: "#0A0908", borderTop: `1px solid rgba(26,171,220,0.1)` }}
+      >
+        <div className="container">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+              <div>
+                <div
+                  className="text-xs tracking-widest mb-3"
+                  style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
+                >
+                  // RETAIL PARTNERS
+                </div>
+                <h2
+                  className="leading-none"
+                  style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                    color: OFF_WHITE,
+                    letterSpacing: "0.03em",
+                  }}
+                >
+                  WHERE TO BUY
+                </h2>
+              </div>
+              <p
+                className="text-sm max-w-xs text-right"
+                style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Find Snoochiez at a licensed dispensary near you.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+            {dispensaries.map((d, i) => (
+              <AnimatedSection key={d.name} delay={i * 70}>
+                <div
+                  className="p-7 transition-all duration-300 group"
+                  style={{
+                    borderTop: `1px solid rgba(26,171,220,0.12)`,
+                    borderRight: (i % 3 !== 2) ? `1px solid rgba(26,171,220,0.12)` : "none",
+                    cursor: "default",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `rgba(26,171,220,0.04)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                  }}
+                >
+                  {/* Type badge */}
+                  <div className="mb-4">
+                    <span
+                      className="text-xs tracking-widest px-2 py-0.5"
+                      style={{
+                        fontFamily: "'Space Mono', monospace",
+                        color: BRAND,
+                        border: `1px solid rgba(26,171,220,0.35)`,
+                      }}
+                    >
+                      {d.type}
+                    </span>
+                  </div>
+
+                  {/* Name */}
+                  <h3
+                    className="mb-2 leading-tight"
+                    style={{
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontSize: "1.6rem",
+                      color: OFF_WHITE,
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    {d.name}
+                  </h3>
+
+                  {/* Details */}
+                  <div className="space-y-1.5 mt-3">
+                    <p
+                      className="text-sm"
+                      style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
+                    >
+                      {d.address}
+                    </p>
+                    <p
+                      className="text-xs tracking-wide"
+                      style={{ fontFamily: "'Space Mono', monospace", color: "#4A4840" }}
+                    >
+                      {d.hours}
+                    </p>
+                    <a
+                      href={`tel:${d.phone.replace(/\D/g, "")}`}
+                      className="text-xs tracking-wide block transition-colors duration-200"
+                      style={{ fontFamily: "'Space Mono', monospace", color: "#4A4840" }}
+                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#4A4840"}
+                    >
+                      {d.phone}
+                    </a>
+                  </div>
+
+                  {/* Directions link */}
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(d.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-5 text-xs tracking-widest transition-colors duration-200"
+                    style={{ fontFamily: "'Space Mono', monospace", color: `rgba(26,171,220,0.45)` }}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = `rgba(26,171,220,0.45)`}
+                  >
+                    GET DIRECTIONS →
+                  </a>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <AnimatedSection delay={200}>
+            <div
+              className="mt-12 p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+              style={{ border: `1px solid rgba(26,171,220,0.15)` }}
+            >
+              <div>
+                <div
+                  className="text-xs tracking-widest mb-2"
+                  style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
+                >
+                  CARRY SNOOCHIEZ?
+                </div>
+                <p
+                  className="text-base"
+                  style={{ color: "rgba(245,240,232,0.65)", fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Are you a licensed dispensary interested in stocking our flower?
+                </p>
+              </div>
+              <Link href="/contact">
+                <span
+                  className="inline-block px-8 py-3 text-sm tracking-widest whitespace-nowrap transition-all duration-200"
+                  style={{
+                    fontFamily: "'Space Mono', monospace",
+                    backgroundColor: "transparent",
+                    color: BRAND,
+                    border: `1px solid ${BRAND}`,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = BRAND;
+                    (e.target as HTMLElement).style.color = "#ffffff";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = "transparent";
+                    (e.target as HTMLElement).style.color = BRAND;
+                  }}
+                >
+                  BECOME A PARTNER →
+                </span>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>
