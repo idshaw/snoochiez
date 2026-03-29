@@ -55,9 +55,9 @@ function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; d
 }
 
 const strainHighlights = [
-  { name: "Purple Haze OG", type: "SATIVA", thc: "28%", desc: "Euphoric, creative, electric. The one that started it all." },
-  { name: "Midnight Kush", type: "INDICA", thc: "31%", desc: "Deep body relaxation. For the late-night legends." },
-  { name: "Citrus Wreck", type: "HYBRID", thc: "26%", desc: "Bright, zesty, and perfectly balanced. Good times guaranteed." },
+  { name: "Don Danko", type: "INDICA", thc: "32%", desc: "The don of the lineup. Heavy OG Kush heritage, pungent fuel-and-earth nose, and a commanding body high that demands respect." },
+  { name: "Rainbow Beltz 2.0", type: "HYBRID", thc: "33%", desc: "Multi-colored nugs, candy-sweet terpenes, and a potent euphoric high that hits like the original but harder. Limited drops only." },
+  { name: "Citrus Titz", type: "SATIVA", thc: "25%", desc: "Loud, proud, and dripping in citrus. Tangerine, lemon zest, and a grapefruit finish. Uplifting, social, and smooth." },
 ];
 
 const dispensaries = [
