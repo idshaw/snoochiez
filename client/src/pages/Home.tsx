@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 // New hero — icy blue-lit bud on deep charcoal, matches brand palette
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-hero-v2-eQvu2PxViJiUkesjsnEGYj.webp";
-const LIFESTYLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-lifestyle-F5DQtLqnL9D53kLfZLqRY9.webp";
+const LIFESTYLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-lifestyle-v2-7tVsfJAQzbAF56vWNwJfcg.webp";
 const PRODUCTS_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-products-bg-Bd97Dcp2EBtm5EnsuKvhmq.webp";
 
 const BRAND = "#1AABDC";
