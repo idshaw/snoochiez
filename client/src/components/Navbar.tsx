@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-logo_96fb928b.png";
+const LOGO_URL = "/manus-storage/snoochiez-logo-blue_62ca93c2.webp";
 
 const BRAND = "#1AABDC";
 const OFF_WHITE = "#F5F0E8";
@@ -52,8 +52,8 @@ export default function Navbar() {
           >
             <div
               style={{
-                backgroundColor: "#000000",
-                padding: "6px 14px",
+                backgroundColor: "transparent",
+                padding: "4px 0",
                 display: "flex",
                 alignItems: "center",
               }}
@@ -62,7 +62,7 @@ export default function Navbar() {
                 src={LOGO_URL}
                 alt="Snoochiez"
                 style={{
-                  height: "36px",
+                  height: "44px",
                   width: "auto",
                   display: "block",
                   objectFit: "contain",

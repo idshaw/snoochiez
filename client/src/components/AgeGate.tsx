@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const BRAND = "#1AABDC";
 const OFF_WHITE = "#F5F0E8";
 const MUTED = "#8A8578";
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663491964705/FiUHmn5ogp3bzwmnbZxd7M/snoochiez-logo_96fb928b.png";
+const LOGO_URL = "/manus-storage/snoochiez-logo-blue_62ca93c2.webp";
 const STORAGE_KEY = "snoochiez_age_verified";
 
 export default function AgeGate() {
@@ -99,15 +99,15 @@ export default function AgeGate() {
             <div
               style={{
                 display: "inline-block",
-                backgroundColor: "#000000",
-                padding: "8px 20px",
+                backgroundColor: "transparent",
+                padding: "0",
                 marginBottom: "2.5rem",
               }}
             >
               <img
                 src={LOGO_URL}
                 alt="Snoochiez"
-                style={{ height: "44px", width: "auto", display: "block" }}
+                style={{ height: "56px", width: "auto", display: "block" }}
               />
             </div>
 
