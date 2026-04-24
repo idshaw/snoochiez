@@ -249,6 +249,30 @@ const products = [
     tags: ["BANANA", "TROPICAL", "HEAVY"],
     badge: "HOUSE CUT",
   },
+  {
+    id: 18,
+    name: "UK Cheese",
+    type: "HYBRID",
+    thc: "20%",
+    cbd: "0.5%",
+    price: "$55",
+    size: "3.5g",
+    desc: "A British icon, grown right. The original Skunk #1 phenotype that took over the UK underground and never looked back. Sharp, funky cheese on the nose with a pungent, skunky finish. Mellow, euphoric high that keeps you relaxed and chatty. Old school never goes out of style.",
+    tags: ["FUNKY", "SKUNKY", "CLASSIC"],
+    badge: "CLASSIC",
+  },
+  {
+    id: 19,
+    name: "Neville's Haze",
+    type: "SATIVA",
+    thc: "22%",
+    cbd: "0.3%",
+    price: "$68",
+    size: "3.5g",
+    desc: "Named after the godfather of modern cannabis breeding, Neville's Haze is a pure sativa legend. Northern Lights #5 x Haze genetics. Spicy, earthy, and floral with a long-lasting cerebral high that builds slow and hits deep. Not for the impatient — but absolutely worth the wait.",
+    tags: ["SPICY", "CEREBRAL", "LEGENDARY"],
+    badge: "PREMIUM",
+  },
 ];
 
 const filters = ["ALL", "SATIVA", "INDICA", "HYBRID"];
