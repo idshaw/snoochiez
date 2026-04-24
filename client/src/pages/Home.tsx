@@ -529,112 +529,60 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-            {dispensaries.map((d, i) => (
-              <AnimatedSection key={d.name} delay={i * 70}>
-                <div
-                  className="p-7 transition-all duration-300 group"
-                  style={{
-                    borderTop: `1px solid rgba(26,171,220,0.12)`,
-                    borderRight: (i % 3 !== 2) ? `1px solid rgba(26,171,220,0.12)` : "none",
-                    cursor: "default",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = `rgba(26,171,220,0.04)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                  }}
-                >
-                  {/* Type badge */}
-                  <div className="mb-4">
-                    <span
-                      className="text-xs tracking-widest px-2 py-0.5"
-                      style={{
-                        fontFamily: "'Space Mono', monospace",
-                        color: BRAND,
-                        border: `1px solid rgba(26,171,220,0.35)`,
-                      }}
-                    >
-                      {d.type}
-                    </span>
-                  </div>
-
-                  {/* Name */}
-                  <h3
-                    className="mb-2 leading-tight"
-                    style={{
-                      fontFamily: "'Bebas Neue', sans-serif",
-                      fontSize: "1.6rem",
-                      color: OFF_WHITE,
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    {d.name}
-                  </h3>
-
-                  {/* Details */}
-                  <div className="space-y-1.5 mt-3">
-                    <p
-                      className="text-sm"
-                      style={{ color: MUTED, fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      {d.address}
-                    </p>
-                    <p
-                      className="text-xs tracking-wide"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#4A4840" }}
-                    >
-                      {d.hours}
-                    </p>
-                    <a
-                      href={`tel:${d.phone.replace(/\D/g, "")}`}
-                      className="text-xs tracking-wide block transition-colors duration-200"
-                      style={{ fontFamily: "'Space Mono', monospace", color: "#4A4840" }}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#4A4840"}
-                    >
-                      {d.phone}
-                    </a>
-                  </div>
-
-                  {/* Directions link */}
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(d.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-5 text-xs tracking-widest transition-colors duration-200"
-                    style={{ fontFamily: "'Space Mono', monospace", color: `rgba(26,171,220,0.45)` }}
-                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = BRAND}
-                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = `rgba(26,171,220,0.45)`}
-                  >
-                    GET DIRECTIONS →
-                  </a>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Bottom CTA */}
-          <AnimatedSection delay={200}>
+          {/* ─── COMING SOON PLACEHOLDER ─────────────────────────────────────────
+               TODO: Restore dispensary grid when brand launches.
+               The full dispensary data array (dispensaries[]) and grid JSX
+               are preserved above and below this block — just swap this out.
+          ─────────────────────────────────────────────────────────────────── */}
+          <AnimatedSection delay={100}>
             <div
-              className="mt-12 p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-              style={{ border: `1px solid rgba(26,171,220,0.15)` }}
+              className="flex flex-col items-center justify-center text-center py-20 md:py-28"
+              style={{
+                border: `1px solid rgba(26,171,220,0.15)`,
+                position: "relative",
+                overflow: "hidden",
+              }}
             >
-              <div>
-                <div
-                  className="text-xs tracking-widest mb-2"
-                  style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
-                >
-                  CARRY SNOOCHIEZ?
-                </div>
-                <p
-                  className="text-base"
-                  style={{ color: "rgba(245,240,232,0.65)", fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Are you a licensed dispensary interested in stocking our flower?
-                </p>
+              {/* Subtle background glow */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: `radial-gradient(ellipse at center, rgba(26,171,220,0.05) 0%, transparent 70%)`,
+                  pointerEvents: "none",
+                }}
+              />
+
+              <div
+                className="text-xs tracking-widest mb-6"
+                style={{ fontFamily: "'Space Mono', monospace", color: BRAND }}
+              >
+                // RETAIL PARTNERS
               </div>
+
+              <div
+                className="leading-none mb-4"
+                style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: "clamp(3.5rem, 10vw, 7rem)",
+                  color: OFF_WHITE,
+                  letterSpacing: "0.04em",
+                  lineHeight: 0.9,
+                }}
+              >
+                COMING<br />
+                <span style={{ color: BRAND }}>SOON.</span>
+              </div>
+
+              <div className="w-12 h-0.5 my-6" style={{ backgroundColor: BRAND }} />
+
+              <p
+                className="text-base max-w-md leading-relaxed mb-10"
+                style={{ color: "rgba(245,240,232,0.55)", fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Snoochiez is launching soon at licensed dispensaries near you. Stay tuned — the loud flower is on its way.
+              </p>
+
               <Link href="/contact">
                 <span
                   className="inline-block px-8 py-3 text-sm tracking-widest whitespace-nowrap transition-all duration-200"
