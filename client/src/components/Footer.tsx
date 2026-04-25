@@ -135,7 +135,7 @@ export default function Footer() {
             className="text-xs"
             style={{ fontFamily: "'Space Mono', monospace", color: "#4A4840" }}
           >
-            © 2025 Snoochiez. All rights reserved.
+            © 2026 Snoochiez. All rights reserved.
           </p>
           <p
             className="text-xs"
