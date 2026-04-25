@@ -100,27 +100,28 @@ export default function Footer() {
                 hello@snoochiez.com
               </a>
               <div className="flex gap-4 mt-3">
-                {["IG", "TW", "TK"].map((social) => (
-                  <span
-                    key={social}
-                    className="text-xs tracking-widest px-2 py-1 transition-all duration-200 cursor-pointer"
-                    style={{
-                      fontFamily: "'Space Mono', monospace",
-                      color: MUTED,
-                      border: "1px solid rgba(138,133,120,0.3)",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.color = BRAND;
-                      (e.target as HTMLElement).style.borderColor = BRAND;
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.color = MUTED;
-                      (e.target as HTMLElement).style.borderColor = "rgba(138,133,120,0.3)";
-                    }}
-                  >
-                    {social}
-                  </span>
-                ))}
+                <a
+                  href="https://www.instagram.com/itssnoochiez"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs tracking-widest px-2 py-1 transition-all duration-200"
+                  style={{
+                    fontFamily: "'Space Mono', monospace",
+                    color: MUTED,
+                    border: "1px solid rgba(138,133,120,0.3)",
+                    textDecoration: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.color = BRAND;
+                    (e.target as HTMLElement).style.borderColor = BRAND;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.color = MUTED;
+                    (e.target as HTMLElement).style.borderColor = "rgba(138,133,120,0.3)";
+                  }}
+                >
+                  IG
+                </a>
               </div>
             </div>
           </div>

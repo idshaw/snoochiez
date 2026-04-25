@@ -205,26 +205,26 @@ export default function Contact() {
                       FOLLOW THE SMOKE
                     </div>
                     <div className="flex flex-col gap-3">
-                      {[
-                        { platform: "INSTAGRAM", handle: "@snoochiez" },
-                        { platform: "TWITTER / X", handle: "@snoochiez" },
-                        { platform: "TIKTOK", handle: "@snoochiez" },
-                      ].map((s) => (
-                        <div key={s.platform} className="flex justify-between items-center">
-                          <span
-                            className="text-xs tracking-widest"
-                            style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
-                          >
-                            {s.platform}
-                          </span>
-                          <span
-                            className="text-sm"
-                            style={{ color: OFF_WHITE, fontFamily: "'DM Sans', sans-serif" }}
-                          >
-                            {s.handle}
-                          </span>
-                        </div>
-                      ))}
+                      <a
+                        href="https://www.instagram.com/itssnoochiez"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex justify-between items-center transition-opacity duration-200 hover:opacity-80"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <span
+                          className="text-xs tracking-widest"
+                          style={{ fontFamily: "'Space Mono', monospace", color: MUTED }}
+                        >
+                          INSTAGRAM
+                        </span>
+                        <span
+                          className="text-sm"
+                          style={{ color: BRAND, fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          @itssnoochiez
+                        </span>
+                      </a>
                     </div>
                   </div>
 
